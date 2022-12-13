@@ -18,7 +18,6 @@ export function Header() {
       <div className="container container-header">
         <img src={image} alt="" />
         <div className="container-input">
-          <img src={retangle} alt="" />
           {/* <Input
             products={products}
             filterList={filterLIst}
