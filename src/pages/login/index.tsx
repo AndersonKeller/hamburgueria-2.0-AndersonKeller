@@ -9,6 +9,8 @@ import { api } from "../../services/api";
 import { useNavigate } from "react-router-dom";
 import { notify as notifyFunction } from "../../contexts/index";
 import { FormLogin } from "../../components/FormLogin";
+import { Input } from "../../components/Input";
+import { Button } from "../../components/Button";
 
 export function Login() {
   const { user, setUser } = useContext(UserContext);
@@ -29,7 +31,8 @@ export function Login() {
     email: string;
     password: string;
   };
-  const onSubmit: SubmitHandler<iFormData> = (data: iFormData) =>
+
+  const onSubmit: SubmitHandler<iFormData> = async (data: iFormData) =>
     onSubmitApi(data);
   function onSubmitApi(data: iFormData) {
     async function loginApi() {
@@ -46,19 +49,35 @@ export function Login() {
         setTimeout(() => {
           navigate("/home");
         }, 3000);
+        console.log(resp);
       } catch (error) {
         notifyFunction({ message: "Algo deu errado", type: "error" });
         console.error(error);
       }
     }
+
     loginApi();
   }
   console.log(user);
   return (
     <>
-      <Header></Header>
+      <Header isHome={false}></Header>
       <main>
-        <FormLogin />
+        <FormLogin onSubmit={handleSubmit(onSubmit)}>
+          <Input
+            register={register("email")}
+            label="email"
+            placeholder="email"
+            type="text"
+          />
+          <Input
+            register={register("password")}
+            label="senha"
+            placeholder="senha"
+            type="password"
+          />
+          <Button text="Logar" type="submit" />
+        </FormLogin>
       </main>
     </>
   );
