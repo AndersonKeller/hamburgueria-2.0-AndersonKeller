@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
+import "react-toastify/dist/ReactToastify.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { MainProvider } from "./contexts";
@@ -13,21 +13,22 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <ToastContainer
-      position="top-center"
-      autoClose={3000}
-      hideProgressBar={false}
-      newestOnTop={false}
-      closeOnClick
-      rtl={false}
-      pauseOnFocusLoss
-      draggable
-      pauseOnHover={false}
-      theme="dark"
-    />
     <BrowserRouter>
+      <GlobalStyle />
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover={false}
+        theme="light"
+      />
+
       <MainProvider>
-        <GlobalStyle />
         <App />
       </MainProvider>
     </BrowserRouter>

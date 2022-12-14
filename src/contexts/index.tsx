@@ -7,20 +7,19 @@ export const MainContext = createContext({});
 
 interface iMainProvider {
   children: ReactNode;
+  notify?: iNotify;
 }
-interface iNotify {
-  message: string;
-  type: "error" | "sucess";
+export interface iNotify {
+  message?: string;
+  type?: "error" | "sucess";
 }
-function notify(message: iNotify, type: iNotify) {
-  type.type === "error"
-    ? toast.error(message.message)
-    : toast.success(message.message);
+export function notify({ message, type }: iNotify) {
+  return type === "error" ? toast.error(message) : toast.success(message);
 }
 
 export function MainProvider({ children }: iMainProvider) {
   return (
-    <MainContext.Provider value={{ notify }}>
+    <MainContext.Provider value={{}}>
       <UserProvider>
         <CartProvider>{children}</CartProvider>
       </UserProvider>

@@ -10,6 +10,8 @@ interface iUserProviderProps {
 }
 interface iUser {
   name: string;
+  email: string;
+  id: number;
 }
 
 export function UserProvider({ children }: iUserProviderProps) {
