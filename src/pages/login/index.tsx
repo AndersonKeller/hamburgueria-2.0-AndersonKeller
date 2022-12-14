@@ -8,6 +8,7 @@ import { UserContext } from "../../contexts/UserContext";
 import { api } from "../../services/api";
 import { useNavigate } from "react-router-dom";
 import { notify as notifyFunction } from "../../contexts/index";
+import { FormLogin } from "../../components/FormLogin";
 
 export function Login() {
   const { user, setUser } = useContext(UserContext);
@@ -57,15 +58,7 @@ export function Login() {
     <>
       <Header></Header>
       <main>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input type="text" placeholder="nome" {...register("email")} />
-          <input
-            type="password"
-            placeholder="senha"
-            {...register("password")}
-          />
-          <button type="submit">Logar</button>
-        </form>
+        <FormLogin />
       </main>
     </>
   );

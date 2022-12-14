@@ -29,6 +29,9 @@ const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
 }
+main{
+  padding: 1rem;
+}
 button {
   cursor: pointer;
   border-radius: 0.5rem;
@@ -36,7 +39,7 @@ button {
   font-weight: 600;
 }
 .container {
-  padding: 1rem;
+  padding: 1rem 0;
   max-width: 1400px;
   display: flex;
   flex-direction: column;
