@@ -6,7 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { api } from "../../services/api";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { notify as notifyFunction } from "../../contexts/index";
 import { FormLogin } from "../../components/FormLogin";
 import { Input } from "../../components/Input";
@@ -63,7 +63,7 @@ export function Login() {
     <>
       <Header isHome={false}></Header>
       <main>
-        <FormLogin onSubmit={handleSubmit(onSubmit)}>
+        <FormLogin title="Login" onSubmit={handleSubmit(onSubmit)}>
           <Input
             register={register("email")}
             label="email"
@@ -77,6 +77,10 @@ export function Login() {
             type="password"
           />
           <Button text="Logar" type="submit" />
+          <p>Crie sua conta para saborear muitas delícias e matar sua fome!</p>
+          <Link className="linkRegister" to={"/register"}>
+            Cadastrar
+          </Link>
         </FormLogin>
       </main>
     </>
