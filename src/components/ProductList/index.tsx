@@ -12,6 +12,9 @@ export interface iProduct {
   price: number;
   img: string;
 }
+export interface iProductList {
+  productList: iProduct[];
+}
 
 export function ProductsList({ productList }: iProductListProps) {
   console.log(productList);

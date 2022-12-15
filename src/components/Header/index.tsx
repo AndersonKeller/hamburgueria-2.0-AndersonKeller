@@ -1,10 +1,13 @@
+import { useContext, useState } from "react";
 import { AiOutlineSearch, AiOutlineShoppingCart } from "react-icons/ai";
 import { TbLogout } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "../../contexts/CartContext";
 import image from "../../img/logo.png";
 
 import retangle from "../../img/rectangleshop.png";
 import bag from "../../img/shopping-bag.png";
+import { Modal } from "../Modal";
 
 import { StyledHeader } from "./styles";
 
@@ -20,6 +23,8 @@ interface iHeaderProps {
 
 export function Header({ isHome }: iHeaderProps) {
   const navigate = useNavigate();
+
+  const { modalShow, setModalShow } = useContext(CartContext);
 
   return (
     <StyledHeader>
@@ -39,11 +44,12 @@ export function Header({ isHome }: iHeaderProps) {
         ) : (
           <div className="container-input">
             <AiOutlineSearch />
-            <AiOutlineShoppingCart />
+            <AiOutlineShoppingCart onClick={() => setModalShow(!modalShow)} />
             <TbLogout onClick={() => navigate("/login")} />
           </div>
         )}
       </div>
+      {modalShow && <Modal />}
     </StyledHeader>
   );
 }

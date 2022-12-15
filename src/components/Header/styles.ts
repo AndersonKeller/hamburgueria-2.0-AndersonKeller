@@ -19,11 +19,7 @@ export const StyledHeader = styled.header`
     gap: 1rem;
     max-width: 300px;
   }
-  button {
-    position: absolute;
-    top: 10px;
-    right: 5px;
-  }
+
   .fake-header {
     display: flex;
     p {
