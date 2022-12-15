@@ -46,6 +46,8 @@ export function Login() {
           "@token-hamburgueria2.0",
           resp.data.accessToken
         );
+        console.log(resp.data);
+        window.localStorage.setItem("@idUser", resp.data.user.id);
         notifyFunction({ message: "Sucesso", type: "sucess" });
         setTimeout(() => {
           navigate("/home");
