@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import { StyledCart } from "./style";
 import { iProduct } from "../../components/ProductList";
+import { CartProduct } from "../CartProduct";
 
 export function Cart() {
   const { cart, setCart, modalShow, setModalShow, productList } =
@@ -14,7 +15,7 @@ export function Cart() {
 
   // eslint-disable-next-line no-self-compare
   const findId = cart.filter((prod: iProduct) => prod.id !== prod.id);
-
+  console.log(findId);
   return (
     <StyledCart className="cart-main">
       <div className="cart-header">
@@ -23,17 +24,16 @@ export function Cart() {
       </div>
       <div className="cart-body">
         {cart.length ? (
-          findId.map((prod: iProduct) => {
+          cart.map((prod: iProduct) => {
             return (
               <>
-                {/* <CartProduct
-                  findId={findId}
-                  currentSale={currentSale}
-                  setCurrentSale={setCurrentSale}
-                  key={prod.id}
+                <CartProduct
+                  // findId={findId}
+                  // currentSale={cart}
+                  // setCurrentSale={setCart}
+                  // key={prod.id}
                   product={prod}
-                /> */}
-                <h2>Olá</h2>
+                />
               </>
             );
           })
