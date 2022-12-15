@@ -4,11 +4,13 @@ import { StyledCart } from "./style";
 import { iProduct } from "../../components/ProductList";
 
 export function Cart() {
-  const { cart, setCart, modalShow, setModalShow } = useContext(CartContext);
+  const { cart, setCart, modalShow, setModalShow, productList } =
+    useContext(CartContext);
 
   //   const filterPrice = currentSale.reduce((acc, sale) => {
   //     return acc + sale.price;
   //   }, 0);
+  console.log(productList);
 
   // eslint-disable-next-line no-self-compare
   const findId = cart.filter((prod: iProduct) => prod.id !== prod.id);
