@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+
     :root {
   --color-primary100: #27ae60;
   --color-primary50: #93d7af;
@@ -61,6 +62,7 @@ button,a {
   color: var(--color-gray50);
   font-size:1.5rem;
   font-weight: 900;
+  cursor: pointer;
 }
 @media (min-width: 980px) {
   .container {

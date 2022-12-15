@@ -11,7 +11,7 @@ export function Product({ id, category, img, name, price }: iProduct) {
         <span>{category}</span>
         <p>R$ {price.toFixed(2)}</p>
 
-        <Button text="Adicionar" type="button" />
+        <Button sizeButton="small" text="Adicionar" type="button" />
       </div>
     </StyledProduct>
   );

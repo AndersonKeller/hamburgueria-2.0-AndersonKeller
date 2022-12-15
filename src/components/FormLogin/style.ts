@@ -10,4 +10,5 @@ export const StyledForm = styled.form`
   box-shadow: 0px 0px 30px -20px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   padding: 1rem;
+  gap: 1rem;
 `;

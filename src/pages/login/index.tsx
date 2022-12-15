@@ -69,14 +69,16 @@ export function Login() {
             label="email"
             placeholder="email"
             type="text"
+            errorMsg={errors.email?.message && errors.email.message}
           />
           <Input
             register={register("password")}
             label="senha"
             placeholder="senha"
             type="password"
+            errorMsg={errors.password?.message && errors.password.message}
           />
-          <Button text="Logar" type="submit" />
+          <Button sizeButton="big" text="Logar" type="submit" />
           <p>Crie sua conta para saborear muitas delícias e matar sua fome!</p>
           <Link className="linkRegister" to={"/register"}>
             Cadastrar

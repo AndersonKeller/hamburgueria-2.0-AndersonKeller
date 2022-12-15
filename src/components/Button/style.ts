@@ -1,9 +1,22 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const StyledButton = styled.button`
+interface iButtonProps {
+  sizeButton: string;
+}
+
+export const StyledButton = styled.button<iButtonProps>`
   background-color: var(--color-primary100);
   color: var(--color-gray0);
   padding: 0.5rem 1rem;
+  ${({ sizeButton }) =>
+    sizeButton === "big"
+      ? css`
+          width: 100%;
+          height: 60px;
+        `
+      : css`
+          height: 45px;
+        `}
   :hover {
     background-color: var(--color-primary50);
   }

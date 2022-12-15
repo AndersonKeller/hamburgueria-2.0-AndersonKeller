@@ -4,6 +4,10 @@ export const StyledProduct = styled.li`
   border: 2px solid var(--color-gray20);
   border-radius: 0.5rem;
   min-width: 300px;
+  cursor: pointer;
+  :hover {
+    border: 2px solid var(--color-primary100);
+  }
   img {
     width: 100%;
     height: 150px;

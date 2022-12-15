@@ -61,26 +61,32 @@ export function Register() {
           type="text"
           placeholder="nome"
           register={register("name")}
+          errorMsg={errors.name?.message && errors.name.message}
         />
         <Input
           label="email"
           type="email"
           placeholder="email"
           register={register("email")}
+          errorMsg={errors.email?.message && errors.email.message}
         />
         <Input
           label="senha"
           type="password"
           placeholder="Insira sua senha"
           register={register("password")}
+          errorMsg={errors.password?.message && errors.password.message}
         />
         <Input
           label="Confirme a senha"
           type="password"
           placeholder="Confirme a senha"
           register={register("passwordConfirme")}
+          errorMsg={
+            errors.passwordConfirme?.message && errors.passwordConfirme.message
+          }
         />
-        <Button text="Registrar" type="submit" />
+        <Button sizeButton="big" text="Registrar" type="submit" />
       </FormLogin>
     </>
   );

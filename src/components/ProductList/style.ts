@@ -7,6 +7,7 @@ export const StyledProductList = styled.ul`
   gap: 1rem;
   padding: 1rem;
   max-width: 990px;
+  margin: 0 auto;
   @media (min-width: 980px) {
     flex-wrap: wrap;
   }
