@@ -36,6 +36,7 @@ export function Header({ isHome }: iHeaderProps) {
   function openSearch(): void {
     setShowSearch(true);
   }
+
   return showSearch ? (
     <StyledHeader isHome={isHome}>
       <InputSearch showSearch={showSearch} setShowSearch={setShowSearch} />
@@ -60,7 +61,9 @@ export function Header({ isHome }: iHeaderProps) {
             <button onClick={() => openSearch()}>
               <AiOutlineSearch />
             </button>
-            <AiOutlineShoppingCart onClick={() => setModalShow(!modalShow)} />
+            <button onClick={() => setModalShow(!modalShow)}>
+              <AiOutlineShoppingCart />
+            </button>
             <button onClick={() => backLogin()}>
               <TbLogout />
             </button>

@@ -46,6 +46,7 @@ export function UserProvider({ children }: iUserProviderProps) {
     if (token) {
       verifyUser();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return loading ? (
