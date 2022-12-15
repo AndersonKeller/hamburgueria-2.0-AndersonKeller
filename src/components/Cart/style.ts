@@ -1,9 +1,12 @@
 import styled from "styled-components";
 export const StyledCart = styled.div`
   border-radius: 0.5rem;
+  width: 100%;
   max-width: 385px;
   margin-top: 1rem;
   position: relative;
+  padding: 1rem;
+
   .cart-header {
     background-color: var(--color-primary100);
     text-align: left;

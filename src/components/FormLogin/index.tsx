@@ -10,7 +10,7 @@ interface iFormProps {
 
 export function FormLogin({ children, onSubmit, title }: iFormProps) {
   return (
-    <StyledForm onSubmit={onSubmit}>
+    <StyledForm onSubmit={onSubmit} noValidate>
       <h2>{title}</h2>
       {children}
     </StyledForm>

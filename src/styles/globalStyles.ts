@@ -42,15 +42,7 @@ button,a {
   border: none;
   font-weight: 600;
 }
-.linkRegister{
-  text-decoration: none;
-  background-color: var(--color-gray0);
-  color: var(--color-gray50);
-  padding: 0.5rem 1rem;
-  :hover {
-    background-color: var(--color-primary50);
-  }
-}
+
 .container {
   padding: 1rem 0;
   max-width: 1400px;

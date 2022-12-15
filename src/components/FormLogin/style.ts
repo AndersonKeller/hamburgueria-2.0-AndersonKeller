@@ -12,10 +12,32 @@ export const StyledForm = styled.form`
   padding: 1rem;
   gap: 1rem;
   position: relative;
+  h2 {
+    font-size: var(--font-title3);
+  }
   .linkLogin {
     position: absolute;
     z-index: 12;
-    top: 16px;
+    top: 20px;
     right: 16px;
+    font-size: var(--font-title4);
+  }
+  .linkRegister {
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    text-decoration: none;
+    background-color: var(--color-gray0);
+    color: var(--color-gray50);
+    padding: 1rem;
+    :hover {
+      background-color: var(--color-primary50);
+    }
+  }
+  span {
+    color: var(--feed-negative);
+    font-size: var(--font-caption);
+    font-weight: 400;
+    line-height: 16px;
   }
 `;

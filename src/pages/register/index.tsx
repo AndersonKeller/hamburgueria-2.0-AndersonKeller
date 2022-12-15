@@ -14,11 +14,17 @@ export function Register() {
   const navigate = useNavigate();
   const registerSchema = yup.object().shape({
     name: yup.string().required("Nome obrigatório"),
-    email: yup.string().required("email obrigatório").email("formato inválido"),
-    password: yup.string().required("senha obrigatória"),
+    email: yup
+      .string()
+      .required("Email obrigatório")
+      .email("Insira um email válido"),
+    password: yup
+      .string()
+      .required("Senha obrigatória")
+      .min(6, "Deve conter no mínimo 6 caracteres"),
     passwordConfirme: yup
       .string()
-      .oneOf([yup.ref("password")], "deve ser igual a senha"),
+      .oneOf([yup.ref("password")], "Senhas devem ser identicas"),
   });
   type iFormData = {
     name: string;
@@ -29,9 +35,11 @@ export function Register() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<iFormData>({
     mode: "onChange",
+
     resolver: yupResolver(registerSchema),
   });
 
@@ -44,12 +52,17 @@ export function Register() {
       try {
         const resp = await api.post("/users", data);
         console.log(resp.data);
-        notify({ message: "Registro bem sucedido", type: "sucess" });
+        notify({ message: "Registrado com sucesso", type: "sucess" });
         setTimeout(() => {
           navigate("/login");
         }, 3000);
       } catch (error) {
-        notify({ message: "Registro não efetuado", type: "error" });
+        console.error(error);
+        notify({
+          message: "Falha ao registrar, email já cadastrado",
+          type: "error",
+        });
+        reset({ password: "", passwordConfirme: "" });
       }
     }
     registerApi();

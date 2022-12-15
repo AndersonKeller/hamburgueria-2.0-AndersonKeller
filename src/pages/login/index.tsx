@@ -17,12 +17,19 @@ export function Login() {
 
   const navigate = useNavigate();
   const loginSchema = yup.object().shape({
-    email: yup.string().required("email obrigatório").email("formato inválido"),
-    password: yup.string().required("senha obrigatória"),
+    email: yup
+      .string()
+      .required("Email obrigatório")
+      .email("Insira um email válido"),
+    password: yup
+      .string()
+      .required("Senha obrigatória")
+      .min(6, "Deve conter no mínimo 6 caracteres"),
   });
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<iFormData>({
     mode: "onChange",
@@ -48,14 +55,18 @@ export function Login() {
         );
         console.log(resp.data);
         window.localStorage.setItem("@idUser", resp.data.user.id);
-        notifyFunction({ message: "Sucesso", type: "sucess" });
+        notifyFunction({ message: "Sucesso, login efetuado", type: "sucess" });
         setTimeout(() => {
           navigate("/home");
         }, 3000);
         console.log(resp);
       } catch (error) {
-        notifyFunction({ message: "Algo deu errado", type: "error" });
+        notifyFunction({
+          message: `Algo deu errado, senha ou email inválidos`,
+          type: "error",
+        });
         console.error(error);
+        reset({ password: "" });
       }
     }
 
