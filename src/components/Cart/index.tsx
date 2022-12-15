@@ -3,6 +3,7 @@ import { CartContext } from "../../contexts/CartContext";
 import { StyledCart } from "./style";
 import { iProduct } from "../../components/ProductList";
 import { CartProduct } from "../CartProduct";
+import { CartTotal } from "../CartTotal";
 
 export function Cart() {
   const { cart, setCart, modalShow, setModalShow, productList } =
@@ -43,14 +44,7 @@ export function Cart() {
           </>
         )}
       </div>
-      {cart.length > 0 && (
-        // <CartTotal
-        //   key={filterPrice}
-        //   sum={filterPrice}
-        //   setCurrentSale={setCurrentSale}
-        // />
-        <h2>Total</h2>
-      )}
+      {cart.length > 0 && <CartTotal />}
     </StyledCart>
   );
 }
