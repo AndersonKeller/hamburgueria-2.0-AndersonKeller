@@ -2,6 +2,7 @@ import { createContext, ReactNode } from "react";
 import { CartProvider } from "./CartContext";
 import { UserProvider } from "./UserContext";
 import { toast } from "react-toastify";
+import { IconContext } from "react-icons";
 
 export const MainContext = createContext({});
 
@@ -20,9 +21,11 @@ export function notify({ message, type }: iNotify) {
 export function MainProvider({ children }: iMainProvider) {
   return (
     <MainContext.Provider value={{}}>
-      <UserProvider>
-        <CartProvider>{children}</CartProvider>
-      </UserProvider>
+      <IconContext.Provider value={{ className: "react-icons" }}>
+        <UserProvider>
+          <CartProvider>{children}</CartProvider>
+        </UserProvider>
+      </IconContext.Provider>
     </MainContext.Provider>
   );
 }

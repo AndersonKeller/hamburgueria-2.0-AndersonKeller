@@ -1,6 +1,8 @@
-import { useContext } from "react";
-
+import { AiOutlineSearch, AiOutlineShoppingCart } from "react-icons/ai";
+import { TbLogout } from "react-icons/tb";
+import { useNavigate } from "react-router-dom";
 import image from "../../img/logo.png";
+
 import retangle from "../../img/rectangleshop.png";
 import bag from "../../img/shopping-bag.png";
 
@@ -17,11 +19,13 @@ interface iHeaderProps {
 }
 
 export function Header({ isHome }: iHeaderProps) {
+  const navigate = useNavigate();
+
   return (
     <StyledHeader>
       <div className="container container-header">
         <img src={image} alt="" />
-        {!isHome && (
+        {!isHome ? (
           <div className="fake-header">
             <div className="bag-div">
               <img src={retangle} alt="" />
@@ -32,14 +36,13 @@ export function Header({ isHome }: iHeaderProps) {
               </p>
             </div>
           </div>
+        ) : (
+          <div className="container-input">
+            <AiOutlineSearch />
+            <AiOutlineShoppingCart />
+            <TbLogout onClick={() => navigate("/login")} />
+          </div>
         )}
-      </div>
-      <div className="container-input">
-        {/* <Input
-            products={products}
-            filterList={filterLIst}
-            setFilterList={setFilterList}
-          /> */}
       </div>
     </StyledHeader>
   );

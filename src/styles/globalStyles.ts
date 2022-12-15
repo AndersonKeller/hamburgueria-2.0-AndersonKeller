@@ -52,10 +52,15 @@ button,a {
   padding: 1rem 0;
   max-width: 1400px;
   display: flex;
-  flex-direction: column;
+ flex-wrap: wrap;
   width: 100%;
   margin: 0 auto;
   gap: 1rem;
+}
+.react-icons{
+  color: var(--color-gray50);
+  font-size:1.5rem;
+  font-weight: 900;
 }
 @media (min-width: 980px) {
   .container {

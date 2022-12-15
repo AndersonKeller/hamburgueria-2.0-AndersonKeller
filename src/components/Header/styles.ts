@@ -8,15 +8,16 @@ export const StyledHeader = styled.header`
   height: auto;
   background-color: var(--color-gray0);
   img {
-    width: max-content;
+    max-width: 50%;
   }
   .container-input {
     display: flex;
     position: relative;
     justify-content: center;
-    width: 100%;
+    align-items: center;
+    width: 40%;
+    gap: 1rem;
     max-width: 300px;
-    min-width: 250px;
   }
   button {
     position: absolute;

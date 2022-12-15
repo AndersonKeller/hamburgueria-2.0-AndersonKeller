@@ -1,3 +1,4 @@
+import { Button } from "../Button";
 import { iProduct } from "../ProductList";
 import { StyledProduct } from "./style";
 
@@ -10,9 +11,7 @@ export function Product({ id, category, img, name, price }: iProduct) {
         <span>{category}</span>
         <p>R$ {price.toFixed(2)}</p>
 
-        {/* <StyledButton onClick={() => setCurrentSale([...currentSale, product])}>
-          Adicionar
-        </StyledButton> */}
+        <Button text="Adicionar" type="button" />
       </div>
     </StyledProduct>
   );

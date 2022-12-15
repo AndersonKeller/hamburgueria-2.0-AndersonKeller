@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
-import { Button } from "../Button";
-import { Input } from "../Input";
+
 import { StyledForm } from "./style";
 
 interface iFormProps {
