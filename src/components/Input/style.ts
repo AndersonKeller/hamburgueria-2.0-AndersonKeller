@@ -6,7 +6,7 @@ export const StyledInput = styled.fieldset`
   width: 100%;
   input {
     background-color: var(--color-gray0);
-    height: 60px;
+    height: 50px;
     padding-left: 15px;
     border-radius: 0.5rem;
     border: none;

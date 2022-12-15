@@ -12,7 +12,7 @@ export const StyledButton = styled.button<iButtonProps>`
     sizeButton === "big"
       ? css`
           width: 100%;
-          height: 60px;
+          height: 50px;
         `
       : css`
           height: 45px;

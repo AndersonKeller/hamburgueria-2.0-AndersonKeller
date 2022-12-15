@@ -1,10 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../contexts/CartContext";
-import { iProduct } from "../ProductList";
 
 import { StyledInputSearch } from "./style";
-
-export function InputSearch() {
+interface iInputSearchProps {
+  showSearch: boolean;
+  setShowSearch: (showSearch: boolean) => void;
+}
+export function InputSearch({ showSearch, setShowSearch }: iInputSearchProps) {
   const [value, setValue] = useState("");
 
   const { productList, filterList, setFilterList } = useContext(CartContext);
@@ -16,14 +18,16 @@ export function InputSearch() {
       })
     );
   }
-  console.log(filterList);
-  //   function search(list = []) {
-  //     setFilterList(
-  //       list.filter((prod) => {
-  //         return prod.name.toLowerCase().includes(value.toLowerCase());
-  //       })
-  //     );
+  //   function closeSearch() {
+  //     setValue("")
+  //     //setFilterList([]);
+
+  //     setTimeout(() => {
+  //       setShowSearch(false);
+  //     }, 3000);
   //   }
+
+  console.log(filterList);
 
   return (
     <>

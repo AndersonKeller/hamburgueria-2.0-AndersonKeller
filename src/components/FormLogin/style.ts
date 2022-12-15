@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const StyledForm = styled.form`
   width: 100%;
+  max-width: 500px;
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -12,6 +14,9 @@ export const StyledForm = styled.form`
   padding: 1rem;
   gap: 1rem;
   position: relative;
+  @media (min-width: 875px) {
+    min-width: 375px;
+  }
   h2 {
     font-size: var(--font-title3);
   }

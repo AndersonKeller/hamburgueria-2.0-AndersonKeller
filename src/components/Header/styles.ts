@@ -1,5 +1,10 @@
-import styled from "styled-components";
-export const StyledHeader = styled.header`
+import styled, { css } from "styled-components";
+
+export interface iHeaderProps {
+  isHome?: boolean;
+}
+
+export const StyledHeader = styled.header<iHeaderProps>`
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -7,6 +12,15 @@ export const StyledHeader = styled.header`
   gap: 1rem;
   height: auto;
   background-color: var(--color-gray0);
+  ${({ isHome }) =>
+    isHome &&
+    css`
+      @media (min-width: 875px) {
+        & {
+          background-color: transparent;
+        }
+      }
+    `}
   img {
     max-width: 50%;
   }
@@ -22,6 +36,7 @@ export const StyledHeader = styled.header`
 
   .fake-header {
     display: flex;
+    max-width: 375px;
     p {
       font-size: 0.85rem;
     }

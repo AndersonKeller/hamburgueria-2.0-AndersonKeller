@@ -37,11 +37,11 @@ export function Header({ isHome }: iHeaderProps) {
     setShowSearch(true);
   }
   return showSearch ? (
-    <StyledHeader>
-      <InputSearch />
+    <StyledHeader isHome={isHome}>
+      <InputSearch showSearch={showSearch} setShowSearch={setShowSearch} />
     </StyledHeader>
   ) : (
-    <StyledHeader>
+    <StyledHeader isHome={isHome}>
       <div className="container container-header">
         <img src={image} alt="" />
         {!isHome ? (

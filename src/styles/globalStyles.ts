@@ -1,6 +1,7 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, css } from "styled-components";
+import { iHeaderProps } from "../components/Header/styles";
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle<iHeaderProps>`
 
     :root {
   --color-primary100: #27ae60;
@@ -23,6 +24,9 @@ const GlobalStyle = createGlobalStyle`
   --font-text1: 1rem;
   --font-caption: 0.75rem;
 }
+#root{
+  height: 100vh;
+}
 * {
   margin: 0;
   padding: 0;
@@ -34,6 +38,9 @@ main{
   padding: 1rem;
   max-width: 1400px;
   margin: 0 auto;
+  display: flex;
+    align-items: center;
+    justify-content: center;
 }
 button,a {
   
@@ -58,10 +65,27 @@ button,a {
   font-weight: 900;
   cursor: pointer;
 }
-@media (min-width: 980px) {
-  .container {
-    flex-direction: row;
-  }
-}
+${({ isHome }) =>
+  !isHome &&
+  css`
+    @media (min-width: 875px) {
+      #root {
+        transition: linear 1s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+    }
+    @media (min-width: 980px) {
+      .container {
+        transition: 1s ease;
+        flex-direction: row;
+      }
+    }
+  `}
+
+
 `;
 export default GlobalStyle;

@@ -4,6 +4,7 @@ import { Header } from "../../components/Header";
 import { ProductsList } from "../../components/ProductList";
 import { CartContext } from "../../contexts/CartContext";
 import { api } from "../../services/api";
+import { StyledMain } from "./style";
 
 export function Home() {
   const [productList, setProductList] = useState([]);
@@ -36,9 +37,9 @@ export function Home() {
   }, []);
 
   return loading ? null : (
-    <>
+    <StyledMain>
       <Header isHome={true} />
       <ProductsList />
-    </>
+    </StyledMain>
   );
 }

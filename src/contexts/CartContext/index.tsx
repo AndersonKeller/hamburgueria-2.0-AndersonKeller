@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
-import { iProduct, iProductList } from "../../components/ProductList";
-import { StyledProductList } from "../../components/ProductList/style";
+import { iProduct } from "../../components/ProductList";
+
 import { api } from "../../services/api";
 
 export const CartContext = createContext<iCartContext>({} as iCartContext);
@@ -40,7 +40,7 @@ export function CartProvider({ children }: iCartProviderProps) {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     getProductsApi();
-  }, []);
+  }, [filterList]);
 
   return (
     <CartContext.Provider
