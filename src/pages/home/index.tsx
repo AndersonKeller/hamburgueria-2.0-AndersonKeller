@@ -18,7 +18,7 @@ export function Home() {
             Authorization: `Bearer ${token}`,
           },
         });
-        console.log(resp.data);
+
         setProductList(resp.data);
       } catch (error) {
         navigate("/login");

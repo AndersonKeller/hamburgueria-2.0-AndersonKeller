@@ -28,7 +28,7 @@ export function CartProvider({ children }: iCartProviderProps) {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(resp);
+
       setProductList(resp.data);
       return resp.data;
     }

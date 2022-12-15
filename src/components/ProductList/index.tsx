@@ -17,8 +17,6 @@ export interface iProductList {
 }
 
 export function ProductsList({ productList }: iProductListProps) {
-  console.log(productList);
-
   return (
     <StyledProductList>
       {productList.map((product) => {
