@@ -8,6 +8,7 @@ import { Button } from "../../components/Button";
 import { api } from "../../services/api";
 import { notify } from "../../contexts";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export function Register() {
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ export function Register() {
     handleSubmit,
     formState: { errors },
   } = useForm<iFormData>({
+    mode: "onChange",
     resolver: yupResolver(registerSchema),
   });
 
@@ -55,39 +57,45 @@ export function Register() {
   return (
     <>
       <Header isHome={false} />
-      <FormLogin title="Cadastrar" onSubmit={handleSubmit(onSubmit)}>
-        <Input
-          label="name"
-          type="text"
-          placeholder="nome"
-          register={register("name")}
-          errorMsg={errors.name?.message && errors.name.message}
-        />
-        <Input
-          label="email"
-          type="email"
-          placeholder="email"
-          register={register("email")}
-          errorMsg={errors.email?.message && errors.email.message}
-        />
-        <Input
-          label="senha"
-          type="password"
-          placeholder="Insira sua senha"
-          register={register("password")}
-          errorMsg={errors.password?.message && errors.password.message}
-        />
-        <Input
-          label="Confirme a senha"
-          type="password"
-          placeholder="Confirme a senha"
-          register={register("passwordConfirme")}
-          errorMsg={
-            errors.passwordConfirme?.message && errors.passwordConfirme.message
-          }
-        />
-        <Button sizeButton="big" text="Registrar" type="submit" />
-      </FormLogin>
+      <main>
+        <FormLogin title="Cadastrar" onSubmit={handleSubmit(onSubmit)}>
+          <Link className="linkLogin" to={"/login"}>
+            Retornar para o login
+          </Link>
+          <Input
+            label="name"
+            type="text"
+            placeholder="nome"
+            register={register("name")}
+            errorMsg={errors.name?.message && errors.name.message}
+          />
+          <Input
+            label="email"
+            type="email"
+            placeholder="email"
+            register={register("email")}
+            errorMsg={errors.email?.message && errors.email.message}
+          />
+          <Input
+            label="senha"
+            type="password"
+            placeholder="Insira sua senha"
+            register={register("password")}
+            errorMsg={errors.password?.message && errors.password.message}
+          />
+          <Input
+            label="Confirme a senha"
+            type="password"
+            placeholder="Confirme a senha"
+            register={register("passwordConfirme")}
+            errorMsg={
+              errors.passwordConfirme?.message &&
+              errors.passwordConfirme.message
+            }
+          />
+          <Button sizeButton="big" text="Registrar" type="submit" />
+        </FormLogin>
+      </main>
     </>
   );
 }

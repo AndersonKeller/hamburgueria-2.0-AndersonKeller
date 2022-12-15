@@ -25,6 +25,7 @@ export function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm<iFormData>({
+    mode: "onChange",
     resolver: yupResolver(loginSchema),
   });
   type iFormData = {

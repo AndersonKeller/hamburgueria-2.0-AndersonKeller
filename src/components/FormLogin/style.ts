@@ -11,4 +11,11 @@ export const StyledForm = styled.form`
   border-radius: 5px;
   padding: 1rem;
   gap: 1rem;
+  position: relative;
+  .linkLogin {
+    position: absolute;
+    z-index: 12;
+    top: 16px;
+    right: 16px;
+  }
 `;
