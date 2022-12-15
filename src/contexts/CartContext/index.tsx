@@ -14,11 +14,14 @@ interface iCartContext {
   modalShow: boolean;
   setModalShow: (modalShow: boolean) => void;
   productList: iProduct[];
+  filterList: iProduct[];
+  setFilterList: (filterList: iProduct[]) => void;
 }
 
 export function CartProvider({ children }: iCartProviderProps) {
   const [modalShow, setModalShow] = useState(false);
   const [cart, setCart] = useState<iProduct[]>([]);
+  const [filterList, setFilterList] = useState<iProduct[]>([]);
   const [productList, setProductList] = useState<iProduct[]>([]);
   function getProductsApi() {
     async function getApi() {
@@ -41,7 +44,15 @@ export function CartProvider({ children }: iCartProviderProps) {
 
   return (
     <CartContext.Provider
-      value={{ cart, setCart, modalShow, setModalShow, productList }}
+      value={{
+        filterList,
+        setFilterList,
+        cart,
+        setCart,
+        modalShow,
+        setModalShow,
+        productList,
+      }}
     >
       {children}
     </CartContext.Provider>

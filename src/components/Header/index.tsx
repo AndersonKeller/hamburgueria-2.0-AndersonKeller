@@ -7,6 +7,7 @@ import image from "../../img/logo.png";
 
 import retangle from "../../img/rectangleshop.png";
 import bag from "../../img/shopping-bag.png";
+import { InputSearch } from "../InputSearch";
 import { Modal } from "../Modal";
 
 import { StyledHeader } from "./styles";
@@ -22,6 +23,7 @@ interface iHeaderProps {
 }
 
 export function Header({ isHome }: iHeaderProps) {
+  const [showSearch, setShowSearch] = useState(false);
   const navigate = useNavigate();
 
   const { modalShow, setModalShow } = useContext(CartContext);
@@ -31,8 +33,14 @@ export function Header({ isHome }: iHeaderProps) {
     window.localStorage.removeItem("@token-hamburgueria2.0");
     navigate("/login");
   }
-
-  return (
+  function openSearch(): void {
+    setShowSearch(true);
+  }
+  return showSearch ? (
+    <StyledHeader>
+      <InputSearch />
+    </StyledHeader>
+  ) : (
     <StyledHeader>
       <div className="container container-header">
         <img src={image} alt="" />
@@ -49,7 +57,9 @@ export function Header({ isHome }: iHeaderProps) {
           </div>
         ) : (
           <div className="container-input">
-            <AiOutlineSearch />
+            <button onClick={() => openSearch()}>
+              <AiOutlineSearch />
+            </button>
             <AiOutlineShoppingCart onClick={() => setModalShow(!modalShow)} />
             <button onClick={() => backLogin()}>
               <TbLogout />

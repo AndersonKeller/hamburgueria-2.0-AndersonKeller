@@ -1,9 +1,8 @@
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "../../contexts/CartContext";
+
 import { Product } from "../Product";
 import { StyledProductList } from "./style";
-
-interface iProductListProps {
-  productList: iProduct[];
-}
 
 export interface iProduct {
   id: number;
@@ -16,8 +15,23 @@ export interface iProductList {
   productList: iProduct[];
 }
 
-export function ProductsList({ productList }: iProductListProps) {
-  return (
+export function ProductsList() {
+  const { productList, filterList } = useContext(CartContext);
+  const [fil, setFil] = useState(false);
+
+  useEffect(() => {
+    if (filterList.length) {
+      setFil(true);
+    }
+  }, [filterList]);
+
+  return fil ? (
+    <StyledProductList>
+      {filterList.map((product) => {
+        return <Product key={product.id} {...product} />;
+      })}
+    </StyledProductList>
+  ) : (
     <StyledProductList>
       {productList.map((product) => {
         return <Product key={product.id} {...product} />;
