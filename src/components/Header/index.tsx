@@ -26,6 +26,12 @@ export function Header({ isHome }: iHeaderProps) {
 
   const { modalShow, setModalShow } = useContext(CartContext);
 
+  function backLogin() {
+    window.localStorage.removeItem("@idUser");
+    window.localStorage.removeItem("@token-hamburgueria2.0");
+    navigate("/login");
+  }
+
   return (
     <StyledHeader>
       <div className="container container-header">
@@ -45,7 +51,9 @@ export function Header({ isHome }: iHeaderProps) {
           <div className="container-input">
             <AiOutlineSearch />
             <AiOutlineShoppingCart onClick={() => setModalShow(!modalShow)} />
-            <TbLogout onClick={() => navigate("/login")} />
+            <button onClick={() => backLogin()}>
+              <TbLogout />
+            </button>
           </div>
         )}
       </div>
