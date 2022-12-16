@@ -1,15 +1,37 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "react-toastify/dist/ReactToastify.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { MainProvider } from "./contexts";
+import { BrowserRouter } from "react-router-dom";
+import GlobalStyle from "./styles/globalStyles";
+import { ToastContainer } from "react-toastify";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <GlobalStyle />
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover={false}
+        theme="light"
+      />
+
+      <MainProvider>
+        <App />
+      </MainProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
