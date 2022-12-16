@@ -8,8 +8,10 @@ export const StyledProductList = styled.ul`
   padding: 1rem;
   max-width: 990px;
   margin: 0 auto;
+  transition: 1s ease;
   @media (min-width: 980px) {
     flex-wrap: wrap;
     min-width: 990px;
+    min-height: 80vh;
   }
 `;
