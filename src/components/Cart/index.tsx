@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import { StyledCart } from "./style";
-import { iProduct } from "../../components/ProductList";
+import { iProduct, iProductList } from "../../components/ProductList";
 import { CartProduct } from "../CartProduct";
 import { CartTotal } from "../CartTotal";
 
@@ -10,7 +10,12 @@ export function Cart() {
     useContext(CartContext);
 
   // eslint-disable-next-line no-self-compare
-  const findId = cart.filter((prod: iProduct) => prod.id !== prod.id);
+  function uniqueId(value: iProduct, index: number, cart: iProduct[]) {
+    return cart.indexOf(value) === index;
+  }
+  const findId = cart.filter(uniqueId);
+  console.log(findId);
+  //const findId = cart.filter((prod: iProduct) => prod.id !== prod.id);
 
   return (
     <StyledCart className="cart-main">
@@ -20,7 +25,7 @@ export function Cart() {
       </div>
       <div className="cart-body">
         {cart.length ? (
-          cart.map((prod: iProduct) => {
+          findId.map((prod: iProduct) => {
             return (
               <>
                 <CartProduct key={prod.id} product={prod} />

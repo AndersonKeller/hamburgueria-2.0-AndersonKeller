@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
-import { iProduct, iProductList } from "../ProductList";
+import { iProduct } from "../ProductList";
 import { StyledCartProduct } from "./style";
 
 interface iCartProductProps {
@@ -8,37 +8,23 @@ interface iCartProductProps {
 }
 
 export function CartProduct({ product }: iCartProductProps) {
-  // console.log(currentSale);
-
   const [count, setCount] = useState(1);
   const { cart, setCart } = useContext(CartContext);
-  //   const counting = currentSale.filter((sale) => {
-  //     return sale.id === product.id;
-  //   });
-  function removeItems(id: number) {
+  const counting = cart.filter((sale) => {
+    return sale.id === product.id;
+  });
+  function removeItems() {
     setCart(
-      cart.filter((sale) => {
+      cart.filter((sale, index) => {
         console.log(sale);
-        return sale.id !== id;
-        //return cart;
-        //return cart.indexOf(sale) !== index;
+        return cart.indexOf(sale) !== index;
       })
     );
-    return cart;
   }
-  //   function removeItems() {
-  //     setCurrentSale(
-  //       currentSale.filter((sale, index) => {
-  //         return currentSale.indexOf(sale) !== index;
-  //       })
-  //     );
-  //   }
-  //   useEffect(() => {
-  //     setCount(counting.length);
-  //   }, [counting]);
-  //   // //  counting.id === product.id && setCount(count + 1);
 
-  //   console.log(counting);
+  useEffect(() => {
+    setCount(counting.length);
+  }, [counting]);
 
   return (
     <StyledCartProduct key={product.id}>
@@ -49,9 +35,9 @@ export function CartProduct({ product }: iCartProductProps) {
             ? product.name.substring(0, 10) + "..."
             : product.name}
         </h2>
-        <button onClick={() => removeItems(product.id)}>Remover</button>
+        <button onClick={() => removeItems()}>Remover</button>
         <p>{product.category}</p>
-        <span>X {count}</span>
+        <span>X {counting.length}</span>
       </div>
     </StyledCartProduct>
   );
