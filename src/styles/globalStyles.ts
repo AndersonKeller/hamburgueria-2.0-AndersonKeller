@@ -78,10 +78,21 @@ ${({ isHome }) =>
         margin: 0 auto;
       }
     }
+
+    @media (min-width: 800px) {
+      .container {
+        transition: 1s ease;
+        flex-direction: row;
+        width: 80%;
+        transition: 1s ease;
+      }
+    }
     @media (min-width: 980px) {
       .container {
         transition: 1s ease;
         flex-direction: row;
+        width: 100%;
+        transition: 1s ease;
       }
     }
   `}

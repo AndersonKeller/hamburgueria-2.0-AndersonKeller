@@ -6,10 +6,24 @@ export const StyledInputSearch = styled.input`
   border: 2px solid var(--color-gray20);
   padding-left: 1.25rem;
   height: 50px;
-  max-width: 300px;
+  max-width: 200px;
   width: 100%;
   position: relative;
+  animation: inputAnimation 1s ease;
+
   ::placeholder {
     color: var(--color-gray20);
   }
+
+  @keyframes inputAnimationIn {
+    from {
+      top: -50px;
+    }
+    to {
+      top: 0px;
+    }
+  }
+`;
+export const StyledDivSearch = styled.div`
+  width: 200px;
 `;

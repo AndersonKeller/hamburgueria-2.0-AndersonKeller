@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { CartContext } from "../../contexts/CartContext";
 
-import { StyledInputSearch } from "./style";
+import { StyledDivSearch, StyledInputSearch } from "./style";
 interface iInputSearchProps {
   showSearch: boolean;
   setShowSearch: (showSearch: boolean) => void;
@@ -18,19 +18,15 @@ export function InputSearch({ showSearch, setShowSearch }: iInputSearchProps) {
       })
     );
   }
-  //   function closeSearch() {
-  //     setValue("")
-  //     //setFilterList([]);
-
-  //     setTimeout(() => {
-  //       setShowSearch(false);
-  //     }, 3000);
-  //   }
-
-  console.log(filterList);
+  function closeSearch() {
+    setValue("");
+    setFilterList([]);
+    setShowSearch(false);
+  }
 
   return (
-    <>
+    // eslint-disable-next-line react/style-prop-object
+    <StyledDivSearch>
       <StyledInputSearch
         value={value}
         onChange={(event) => setValue(event.target.value)}
@@ -38,7 +34,7 @@ export function InputSearch({ showSearch, setShowSearch }: iInputSearchProps) {
         itemType="text"
         placeholder="Digite sua pesquisa aqui..."
       />
-      <button onClick={() => search()}>Pesquisar</button>
-    </>
+      <button onClick={() => closeSearch()}>Fechar Pesquisa</button>
+    </StyledDivSearch>
   );
 }

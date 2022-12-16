@@ -64,5 +64,8 @@ export const StyledHeader = styled.header<iHeaderProps>`
       justify-content: space-between;
       align-items: center;
     }
+    .container-input {
+      width: 20%;
+    }
   }
 `;

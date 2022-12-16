@@ -34,12 +34,40 @@ export function Header({ isHome }: iHeaderProps) {
     navigate("/login");
   }
   function openSearch(): void {
-    setShowSearch(true);
+    setShowSearch(!showSearch);
   }
 
   return showSearch ? (
     <StyledHeader isHome={isHome}>
-      <InputSearch showSearch={showSearch} setShowSearch={setShowSearch} />
+      <div className="container container-header">
+        <img src={image} alt="" />
+        <InputSearch showSearch={showSearch} setShowSearch={setShowSearch} />
+        {!isHome ? (
+          <div className="fake-header">
+            <div className="bag-div">
+              <img src={retangle} alt="" />
+              <img className="bag-img" src={bag} alt="" />
+              <p>
+                A vida é como um sanduíche, é preciso recheá-la com os melhores
+                ingredientes.
+              </p>
+            </div>
+          </div>
+        ) : (
+          <div className="container-input">
+            <button onClick={() => openSearch()}>
+              <AiOutlineSearch />
+            </button>
+            <button onClick={() => setModalShow(!modalShow)}>
+              <AiOutlineShoppingCart />
+            </button>
+            <button onClick={() => backLogin()}>
+              <TbLogout />
+            </button>
+          </div>
+        )}
+      </div>
+      {modalShow && <Modal />}
     </StyledHeader>
   ) : (
     <StyledHeader isHome={isHome}>

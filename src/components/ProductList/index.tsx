@@ -22,6 +22,8 @@ export function ProductsList() {
   useEffect(() => {
     if (filterList.length) {
       setFil(true);
+    } else {
+      setFil(false);
     }
   }, [filterList]);
 
