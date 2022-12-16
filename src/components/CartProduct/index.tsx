@@ -16,15 +16,14 @@ export function CartProduct({ product }: iCartProductProps) {
   function removeItems() {
     setCart(
       cart.filter((sale, index) => {
-        console.log(sale);
         return cart.indexOf(sale) !== index;
       })
     );
   }
 
-  useEffect(() => {
-    setCount(counting.length);
-  }, [counting]);
+  // useEffect(() => {
+  //   setCount(counting.length);
+  // }, [counting]);
 
   return (
     <StyledCartProduct key={product.id}>

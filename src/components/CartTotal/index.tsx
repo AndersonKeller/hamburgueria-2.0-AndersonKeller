@@ -6,20 +6,17 @@ import { StyledCartTotal } from "./style";
 
 export function CartTotal() {
   const { cart, setCart } = useContext(CartContext);
-  console.log(cart);
 
   const sum = cart.reduce((acc: number, value: iProduct) => {
     return acc + value.price;
   }, 0);
-  console.log(sum);
 
   return (
     <StyledCartTotal>
       <div>
         <h3>Total </h3>
-        <h3>R$ {sum}</h3>
+        <h3>R$ {sum.toFixed(2)}</h3>
       </div>
-      {/* //<span>R$ {sum.toFixed(2)}</span> */}
 
       <ButtonAdd
         id={6}

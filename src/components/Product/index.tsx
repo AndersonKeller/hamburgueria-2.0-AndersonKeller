@@ -9,7 +9,6 @@ export function Product({ id, category, img, name, price }: iProduct) {
   const { cart, setCart, productList } = useContext(CartContext);
 
   function addCart(id: number) {
-    //return console.log("Ola");
     const findProd = productList.find((product: iProduct) => {
       return product.id === id;
     });

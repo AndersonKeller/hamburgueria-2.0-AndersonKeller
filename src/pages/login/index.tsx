@@ -47,19 +47,17 @@ export function Login() {
       try {
         const resp = await api.post("/login", data);
 
-        console.log(resp.data.user);
         setUser(resp.data.user);
         window.localStorage.setItem(
           "@token-hamburgueria2.0",
           resp.data.accessToken
         );
-        console.log(resp.data);
+
         window.localStorage.setItem("@idUser", resp.data.user.id);
         notifyFunction({ message: "Sucesso, login efetuado", type: "sucess" });
         setTimeout(() => {
           navigate("/home");
         }, 3000);
-        console.log(resp);
       } catch (error) {
         notifyFunction({
           message: `Algo deu errado, senha ou email inválidos`,
@@ -72,7 +70,7 @@ export function Login() {
 
     loginApi();
   }
-  console.log(user);
+
   return (
     <>
       <Header isHome={false}></Header>

@@ -10,7 +10,7 @@ export function InputSearch({ showSearch, setShowSearch }: iInputSearchProps) {
   const [value, setValue] = useState("");
 
   const { productList, filterList, setFilterList } = useContext(CartContext);
-  //console.log(productList);
+
   function search() {
     setFilterList(
       productList.filter((product) => {

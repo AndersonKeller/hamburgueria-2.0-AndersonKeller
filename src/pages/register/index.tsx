@@ -47,11 +47,10 @@ export function Register() {
     onRegisterApi(data);
 
   function onRegisterApi(data: iFormData) {
-    console.log(data);
     async function registerApi() {
       try {
         const resp = await api.post("/users", data);
-        console.log(resp.data);
+
         notify({ message: "Registrado com sucesso", type: "sucess" });
         setTimeout(() => {
           navigate("/login");
