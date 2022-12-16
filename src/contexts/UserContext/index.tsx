@@ -32,7 +32,7 @@ export function UserProvider({ children }: iUserProviderProps) {
             authorization: `Bearer ${token}`,
           },
         });
-        console.log(resp);
+
         navigate("/home");
       } catch (error) {
       } finally {

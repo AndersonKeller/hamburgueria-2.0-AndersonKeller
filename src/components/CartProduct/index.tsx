@@ -16,7 +16,6 @@ export function CartProduct({ product }: iCartProductProps) {
   //     return sale.id === product.id;
   //   });
   function removeItems(id: number) {
-    console.log("oi");
     setCart(
       cart.filter((sale) => {
         console.log(sale);
@@ -42,7 +41,7 @@ export function CartProduct({ product }: iCartProductProps) {
   //   console.log(counting);
 
   return (
-    <StyledCartProduct>
+    <StyledCartProduct key={product.id}>
       <img src={product.img} alt="" />
       <div>
         <h2>

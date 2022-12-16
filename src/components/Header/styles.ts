@@ -69,3 +69,11 @@ export const StyledHeader = styled.header<iHeaderProps>`
     }
   }
 `;
+export const StyledSpanCount = styled.span`
+  padding: 0 0.125rem;
+  border-radius: 8px;
+  color: var(--color-white);
+  background-color: var(--color-primary100);
+  position: absolute;
+  top: -12px;
+`;

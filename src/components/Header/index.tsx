@@ -10,7 +10,7 @@ import bag from "../../img/shopping-bag.png";
 import { InputSearch } from "../InputSearch";
 import { Modal } from "../Modal";
 
-import { StyledHeader } from "./styles";
+import { StyledHeader, StyledSpanCount } from "./styles";
 
 // interface iHeaderProps {
 //   products: iProduct[];
@@ -26,7 +26,7 @@ export function Header({ isHome }: iHeaderProps) {
   const [showSearch, setShowSearch] = useState(false);
   const navigate = useNavigate();
 
-  const { modalShow, setModalShow } = useContext(CartContext);
+  const { modalShow, setModalShow, countProducts } = useContext(CartContext);
 
   function backLogin() {
     window.localStorage.removeItem("@idUser");
@@ -58,6 +58,7 @@ export function Header({ isHome }: iHeaderProps) {
             <button onClick={() => openSearch()}>
               <AiOutlineSearch />
             </button>
+            <StyledSpanCount>{countProducts}</StyledSpanCount>
             <button onClick={() => setModalShow(!modalShow)}>
               <AiOutlineShoppingCart />
             </button>
@@ -89,6 +90,7 @@ export function Header({ isHome }: iHeaderProps) {
             <button onClick={() => openSearch()}>
               <AiOutlineSearch />
             </button>
+            <StyledSpanCount>{countProducts}</StyledSpanCount>
             <button onClick={() => setModalShow(!modalShow)}>
               <AiOutlineShoppingCart />
             </button>

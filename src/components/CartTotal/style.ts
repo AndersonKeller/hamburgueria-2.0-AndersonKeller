@@ -23,4 +23,9 @@ export const StyledCartTotal = styled.div`
     color: var(--color-gray50);
     font-weight: 600;
   }
+  div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
 `;

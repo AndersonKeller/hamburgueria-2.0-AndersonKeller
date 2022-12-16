@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
+import { number } from "yup";
 import { iProduct } from "../../components/ProductList";
 
 import { api } from "../../services/api";
@@ -9,13 +10,14 @@ interface iCartProviderProps {
   children: ReactNode;
 }
 interface iCartContext {
-  cart: iProduct[] | [];
+  cart: iProduct[];
   setCart: (cart: iProduct[]) => void;
   modalShow: boolean;
   setModalShow: (modalShow: boolean) => void;
   productList: iProduct[];
   filterList: iProduct[];
   setFilterList: (filterList: iProduct[]) => void;
+  countProducts: number;
 }
 
 export function CartProvider({ children }: iCartProviderProps) {
@@ -23,6 +25,7 @@ export function CartProvider({ children }: iCartProviderProps) {
   const [cart, setCart] = useState<iProduct[]>([]);
   const [filterList, setFilterList] = useState<iProduct[]>([]);
   const [productList, setProductList] = useState<iProduct[]>([]);
+  const [countProducts, setCountProducts] = useState(cart.length);
   function getProductsApi() {
     async function getApi() {
       const token = window.localStorage.getItem("@token-hamburgueria2.0");
@@ -41,6 +44,9 @@ export function CartProvider({ children }: iCartProviderProps) {
   useEffect(() => {
     getProductsApi();
   }, [filterList]);
+  useEffect(() => {
+    setCountProducts(cart.length);
+  }, [cart]);
 
   return (
     <CartContext.Provider
@@ -52,6 +58,7 @@ export function CartProvider({ children }: iCartProviderProps) {
         modalShow,
         setModalShow,
         productList,
+        countProducts,
       }}
     >
       {children}

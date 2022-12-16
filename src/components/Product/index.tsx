@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { notify } from "../../contexts";
 import { CartContext } from "../../contexts/CartContext";
 import { ButtonAdd } from "../Button";
 import { iProduct } from "../ProductList";
@@ -14,6 +15,7 @@ export function Product({ id, category, img, name, price }: iProduct) {
     });
 
     findProd && setCart([...cart, findProd]);
+    notify({ message: "Produto adicionado ao carrinho", type: "sucess" });
   }
 
   return (

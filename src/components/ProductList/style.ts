@@ -10,5 +10,6 @@ export const StyledProductList = styled.ul`
   margin: 0 auto;
   @media (min-width: 980px) {
     flex-wrap: wrap;
+    min-width: 990px;
   }
 `;

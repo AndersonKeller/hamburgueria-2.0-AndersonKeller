@@ -9,13 +9,9 @@ export function Cart() {
   const { cart, setCart, modalShow, setModalShow, productList } =
     useContext(CartContext);
 
-  //   const filterPrice = currentSale.reduce((acc, sale) => {
-  //     return acc + sale.price;
-  //   }, 0);
-
   // eslint-disable-next-line no-self-compare
   const findId = cart.filter((prod: iProduct) => prod.id !== prod.id);
-  console.log(findId);
+
   return (
     <StyledCart className="cart-main">
       <div className="cart-header">
@@ -27,13 +23,7 @@ export function Cart() {
           cart.map((prod: iProduct) => {
             return (
               <>
-                <CartProduct
-                  // findId={findId}
-                  // currentSale={cart}
-                  // setCurrentSale={setCart}
-                  // key={prod.id}
-                  product={prod}
-                />
+                <CartProduct key={prod.id} product={prod} />
               </>
             );
           })
