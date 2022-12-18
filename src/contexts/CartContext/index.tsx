@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
-import { number } from "yup";
+
 import { iProduct } from "../../components/ProductList";
 
 import { api } from "../../services/api";
@@ -18,6 +18,7 @@ interface iCartContext {
   filterList: iProduct[];
   setFilterList: (filterList: iProduct[]) => void;
   countProducts: number;
+  setProductList: React.Dispatch<React.SetStateAction<iProduct[]>>;
 }
 
 export function CartProvider({ children }: iCartProviderProps) {
@@ -59,6 +60,7 @@ export function CartProvider({ children }: iCartProviderProps) {
         setModalShow,
         productList,
         countProducts,
+        setProductList,
       }}
     >
       {children}
