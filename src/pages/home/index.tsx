@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../../components/Header";
 import { ProductsList } from "../../components/ProductList";
+import { CartContext } from "../../contexts/CartContext";
 
 import { api } from "../../services/api";
 import { StyledMain } from "./style";
 
 export function Home() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [productList, setProductList] = useState([]);
+  const { productList, setProductList } = useContext(CartContext);
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
